@@ -1,6 +1,6 @@
     <footer class="container">
       <div class="row">
-        <div class="col-md-3 left-footer">
+        <div class="col-md-4 left-footer">
           <?php
             dynamic_sidebar('left-footer');
           ?>
@@ -12,7 +12,7 @@
           </div>
         </div>
 
-        <div class="col-md-2 center-links-footer">
+        <div class="col-md-4 center-links-footer">
           <?php
             // Footer Menu Bar Section
             // Says, if the footer is filled out, display menu, if not, displays a message.
@@ -32,20 +32,7 @@
           ?>
         </div>
 
-        <div class="col-md-4 center-logo-footer">
-          <?php
-            // Display logo if it's set, if not display site title
-            if(get_header_image() == ''){ ?>
-              <h1 class="header-logo-text"><a href="<?php echo get_home_url(); ?>"><?php bloginfo('name'); ?></a></h1>
-            <?php
-            }else { ?>
-              <a href="<?php echo get_home_url(); ?>"><img class="logo" src="<?php header_image(); ?>" height="<?php echo get_custom_header()->height; ?>" width="<?php echo get_custom_header()->width; ?>" alt="Company Logo" /></a>
-          <?php
-            }
-          ?>
-        </div>
-
-        <div class="col-md-3 right-footer">
+        <div class="col-md-4 right-footer">
           <?php
             $companyName = get_option('company_name');
 
@@ -73,11 +60,6 @@
             if(!empty($companyNumber)){
              echo "<br />" .  $companyNumber;
             } ?>
-
-
-          <?php
-            dynamic_sidebar('right-footer');
-          ?>
         </div>
       </div>
 

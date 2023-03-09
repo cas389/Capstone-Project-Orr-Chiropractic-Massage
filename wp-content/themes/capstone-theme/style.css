@@ -14,30 +14,6 @@ Use it to make something cool, have fund, and share what you've learned.
 */
 
 
-/*==================================
-
-  Custom Font - Futura
-
-=====================================*/
-@font-face {
-    font-family: 'Futura';
-    src: url('Futura-Medium.eot');
-    src: url('Futura-Medium.eot?#iefix') format('embedded-opentype'),
-        url('Futura-Medium.woff2') format('woff2'),
-        url('Futura-Medium.woff') format('woff'),
-        url('Futura-Medium.ttf') format('truetype'),
-        url('Futura-Medium.svg#Futura-Medium') format('svg');
-}
-@font-face {
-    font-family: 'Futura Italic';
-    src: url('Futura-MediumItalic.eot');
-    src: url('Futura-MediumItalic.eot?#iefix') format('embedded-opentype'),
-        url('Futura-MediumItalic.woff2') format('woff2'),
-        url('Futura-MediumItalic.woff') format('woff'),
-        url('Futura-MediumItalic.ttf') format('truetype'),
-        url('Futura-MediumItalic.svg#Futura-MediumItalic') format('svg');
-}
-
 
 
 /*==================================
@@ -70,4 +46,303 @@ h1 {
   font-family: futura-pt, sans-serif;
   font-weight: 500;
   font-style: normal;
+}
+
+/*==================================
+
+  Header and Header Navigation
+
+=====================================*/
+/*==================================
+  Header Background
+=====================================*/
+/* Header */
+header{
+  top: 0;
+  width: 100%;
+	height: 9rem;
+}
+/*==================================
+  Logo Section
+=====================================*/
+/* Displays if user doesn't upload logo image and just uses text */
+.header-logo-text {
+	padding: 1rem;
+  margin: 0 2rem 1rem 1rem;
+  font-family: futura-pt, sans-serif;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 1rem;
+	text-transform: uppercase;
+  max-width: 15rem;
+}
+.header-logo-text a {
+	color: var(--green);
+	text-decoration: none;
+}
+/* Displayed if user uploads logo image */
+.logo{
+    display: inline-block;
+		padding: .5rem 0 .5rem .5rem;
+}
+
+/*==================================
+  Navigation Section
+=====================================*/
+/* Stylizes Main Navigation Section */
+.main-navigation {
+	width: 101%;
+  height: 100%;
+  position: fixed;
+  background-color: var(--blue);
+  overflow: hidden;
+	max-height: 0;
+	transition: max-height .5s ease-out;
+  font-family: adelle-sans, sans-serif;
+  font-weight: 400;
+  font-style: normal;
+	z-index: 999;
+  margin-left: -1rem;
+}
+.main-navigation a {
+  display: block;
+  color: var(--white);
+	text-decoration: none;
+  text-transform: uppercase;
+  padding: .5rem 2rem;
+  margin-left: -2rem;
+}
+/* Background when clicked on hamburger menu */
+.main-navigation a:hover,
+.main-navigation li:hover ul a:hover,
+.sub-menu a:hover,
+.sub-menu li:hover ul a:hover {
+  background-color: var(--brown);
+	color: white;
+}
+/* Submenu Styling */
+.sub-menu,
+.sub-menu:hover {
+  padding-left: 1rem;
+  margin: 0;
+  color: var(--white);
+}
+/* Gets rid of bullet points on navigation items */
+.main-navigation ul {
+    list-style-type:none;
+}
+/* Stylizes Hamburger Icon and Allows 'Animation' for opening and closing */
+.hamburger-menu{
+  cursor: pointer;
+  float: right;
+  margin: -5rem 1rem;
+  padding: .5rem;
+}
+.hamb-line {
+    background: var(--green);
+    display: block;
+    height: 2px;
+    position: relative;
+    width: 24px;
+}
+.hamb-line::before,
+.hamb-line::after{
+    background: var(--green);
+    content: '';
+    display: block;
+    height: 100%;
+    position: absolute;
+    transition: all .2s ease-out;
+    width: 100%;
+}
+.hamb-line::before{
+    top: 5px;
+}
+.hamb-line::after{
+    top: -5px;
+}
+.side-menu {
+    display: none;
+}
+.side-menu:checked ~ .main-navigation{
+    max-height: 100%;
+}
+.side-menu:checked ~ .hamburger-menu .hamb-line {
+    background: transparent;
+}
+.side-menu:checked ~ .hamburger-menu .hamb-line::before {
+    transform: rotate(-45deg);
+    top:0;
+}
+.side-menu:checked ~ .hamburger-menu .hamb-line::after {
+    transform: rotate(45deg);
+    top:0;
+}
+
+
+
+/*==================================
+
+  Footer Section
+
+=====================================*/
+/* Footer Styling */
+footer {
+  margin: 2rem 0;
+}
+/* Footer Font and Paragrah Styling */
+.left-footer,
+.right-footer,
+.center-links-footer,
+.center-logo-footer,
+.left-footer p,
+.right-footer p,
+.center-links-footer p {
+  text-align: center;
+  font-family: 'PT Serif', serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: .85rem;
+}
+/* Link Styling for Footer Items */
+footer a {
+  text-decoration: none;
+  text-transform: uppercase;
+  color: var(--green);
+  text-align: center;
+}
+footer ul {
+  list-style-type: none;
+}
+footer li {
+  text-align: center;
+}
+footer a:hover {
+  color: var(--blue);
+  text-transform: uppercase;
+}
+/* Fixing Margin with the column */
+.center-links-footer {
+  margin-left: -1rem;
+}
+
+
+
+/*==================================
+
+  Responsive Web Coding - 768px by 1024px (Tablet)
+
+=====================================*/
+@media screen and (min-width: 768px) {
+  /*==================================
+    Headlines and Paragraph Styling
+  =====================================*/
+  h1 {
+    font-size: 2.75rem;
+  }
+
+  /*==================================
+    Logo Section
+  =====================================*/
+  /* Logo Text Format */
+  .header-logo-text {
+    padding: 22px 0 31px 10px;
+    margin: 0;
+  }
+  /*==================================
+    Navigation Section
+  =====================================*/
+  /* Navigation Background Placement when Hamburger Icon is Clicked on and Off */
+  .side-menu:checked ~ .main-navigation,
+  .main-navigation {
+    margin-top: 9rem;
+  }
+  /* Placement of Hamburger Icon */
+  .hamburger-menu {
+    margin: 4rem 1rem;
+  }
+}
+
+/*==================================
+
+Responsive Web Coding - 1366px by 768px (Laptop)
+
+=====================================*/
+@media screen and (min-width: 1366px) {
+  /*==================================
+    Logo Section
+  =====================================*/
+  /* Logo Text Format */
+  .header-logo-text {
+    padding: 35px 0 31px 10px;
+    margin: 0;
+    max-width: none;
+  }
+  /*==================================
+    Navigation Section
+  =====================================*/
+  /* Removes Hamburger Icon from Mobile and Tablet View */
+  .hamburger-menu{
+  	display: none;
+  }
+  /* Necessary changes from mobile view */
+  .main-navigation {
+    overflow: visible;
+    text-align: center;
+    position: relative;
+    margin-top: 3rem;
+    margin-left: 0rem;
+  }
+  .main-navigation a {
+    margin-left: 0;
+    padding: 1rem 0;
+    color: var(--green);
+    min-width: 11rem;
+  }
+  /* Allowes the Navigation to be in a straight line instead of vertical */
+  .main-navigation li {
+    display:inline-block;
+    text-align: center;
+  }
+  /* Allowes the Navigation to Float Right */
+  .main-navigation ul {
+    float: right;
+  }
+  /* Allows the Submenu Dropdown to be vertical instead of horizontal */
+  .main-navigation li ul li {
+    display: block;
+    float: none;
+  }
+  /* Allowes the background of Submenu Dropdown to be white instead of transparent over the hero image */
+  .sub-menu {
+    background-color: white;
+  }
+  /* Gets rid of padding that is needed on mobile version */
+  .sub-menu,
+  .sub-menu:hover {
+    padding-left: 0;
+  }
+  /* Hide Submenu Dropdown links until they are needed */
+  .main-navigation li ul {
+      display: none;
+  }
+  /* Displays the Submenu Dropdown on Regular Menu Hover */
+  .main-navigation ul li a:hover + .sub-menu,
+  .sub-menu:hover {
+      display: block;
+  }
+  /* Adds Font Awesome Arrow to Programs Section and then Gets Rid of it for Submenu Items */
+  .has-arrow a::before {
+    content: "\f107";
+    font-family: "Font Awesome 6 Free";
+    display: inline-block;
+    margin-right: 5px;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    font-weight: 900;
+  }
+  .sub-menu a::before {
+    content: " ";
+    margin-right: 0px;
+  }
 }

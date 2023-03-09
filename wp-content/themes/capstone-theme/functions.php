@@ -84,17 +84,6 @@
       'before_title'  => '<h2>',
       'after_title'   => '</h2>'
     ));
-
-    register_sidebar(array(
-      'name'          => ('Right Footer Widget'),
-      'id'            => 'right-footer',
-      'description'   => 'Displays a Widget for the Right Footer',
-      'before_widget' => '<div class="right-footer">',
-      'after_widget'  => '</div>',// End of sidebar widget container
-      'before_title'  => '<h2>',
-      'after_title'   => '</h2>'
-    ));
-
   }
 
   add_action('widgets_init', 'blank_widgets_init');
@@ -279,4 +268,96 @@
   }
   add_action( 'social-media-links', 'social_links');
 
+ /* ======================================
+
+   Theme Settings
+
+ ====================================== */
+ function orrchiro_theme_settings_page(){ ?>
+   <div class="wrap">
+     <h1>Theme Settings</h1>
+     <p>Here you can set up your Google Analytics account, address, phone number and more!</p>
+     <p>More settings coming soon</p>
+
+     <form method="post" action="options.php">
+       <?php
+        settings_fields('orrchiro-section'); //Register Section
+        do_settings_sections('orrchiro-options'); //Group ID for all of the fields
+        submit_button();
+       ?>
+     </form>
+ <? }
+
+ function display_google_analytics_element(){ ?>
+   <input type="text" name="google_analytics_code" id="google_analytics_code" value="<?php echo get_option('google_analytics_code'); ?>" /><?php
+ }
+
+ function display_company_name(){ ?>
+   <input type="text" name="company_name" id="company_name" value="<?php echo get_option('company_name'); ?>" /><?php
+ }
+
+ function display_address(){ ?>
+   <input type="text" name="company_address" id="company_address" value="<?php echo get_option('company_address'); ?>" /><?php
+ }
+
+ function display_city_zip(){ ?>
+   <input type="text" name="company_city_zip" id="company_city_zip" value="<?php echo get_option('company_city_zip'); ?>" /><?php
+ }
+
+ function display_phone_number(){ ?>
+   <input type="text" name="company_number" id="company_number" value="<?php echo get_option('company_number'); ?>" /><?php
+ }
+
+
+
+ function display_theme_panel_fields(){
+   add_settings_section('orrchiro-section', "All settings", null, 'orrchiro-options');
+
+   add_settings_field('google_analytics_code', 'Google Analytics Tracking ID (example UA-1234567-1)', 'display_google_analytics_element', 'orrchiro-options', 'orrchiro-section');
+
+   add_settings_field('company_name', 'Company Name', 'display_company_name', 'orrchiro-options', 'orrchiro-section');
+
+   add_settings_field('company_address', 'Company Address', 'display_address', 'orrchiro-options', 'orrchiro-section');
+
+   add_settings_field('company_city_zip', 'Company City, State, Zip', 'display_city_zip', 'orrchiro-options', 'orrchiro-section');
+
+   add_settings_field('company_number', 'Company Phone Number', 'display_phone_number', 'orrchiro-options', 'orrchiro-section');
+
+   register_setting('orrchiro-section', 'google_analytics_code');
+   register_setting('orrchiro-section', 'company_name');
+   register_setting('orrchiro-section', 'company_address');
+   register_setting('orrchiro-section', 'company_city_zip');
+   register_setting('orrchiro-section', 'company_number');
+ }
+
+ add_action('admin_init', 'display_theme_panel_fields');
+
+ function add_theme_menu_item(){
+   add_menu_page('Theme Settings', 'Theme Settings', 'manage_options', 'theme-panel', 'orrchiro_theme_settings_page', 'dashicons-admin-settings', 1);
+ }
+
+ add_action('admin_menu', 'add_theme_menu_item');
+
+ /* ======================================
+
+   Google Analytics
+
+ ====================================== */
+ function themeGoogleAnalyitcs() {
+   $googleAnalytics = get_option('google_analytics_code');
+
+   ?>
+
+   <!-- Google tag (gtag.js) -->
+   <script async src="https://www.googletagmanager.com/gtag/js?id=<?php echo $googleAnalytics; ?>"></script>
+   <script>
+     window.dataLayer = window.dataLayer || [];
+     function gtag(){dataLayer.push(arguments);}
+     gtag('js', new Date());
+
+     gtag('config', '<?php echo $googleAnalytics; ?>');
+   </script>
+
+ <?php }
+ add_action('wp_head', 'themeGoogleAnalyitcs');
  ?>
