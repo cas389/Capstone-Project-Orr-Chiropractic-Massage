@@ -1,0 +1,73 @@
+/*
+Theme Name: Capstone Project for Orr Chiropractic and Massage
+Theme URI:
+Author: Kayce Georgi, Cheryl Ju and Madeline Pesce
+Author URI: https://www.cherylju.com
+Description: Website Template for the Orr Chiropractic and Massage Website
+Version: 1.0.0
+License: GNU General Public license v2 or Later
+License URI: https://www.gnu.org/licenses/old-licenses/gpl-2.0.html
+Text Domain: rtelc-template
+
+This theme, like WordPress, is licensed under the GPL.
+Use it to make something cool, have fund, and share what you've learned.
+*/
+
+
+/*==================================
+
+  Custom Font - Futura
+
+=====================================*/
+@font-face {
+    font-family: 'Futura';
+    src: url('Futura-Medium.eot');
+    src: url('Futura-Medium.eot?#iefix') format('embedded-opentype'),
+        url('Futura-Medium.woff2') format('woff2'),
+        url('Futura-Medium.woff') format('woff'),
+        url('Futura-Medium.ttf') format('truetype'),
+        url('Futura-Medium.svg#Futura-Medium') format('svg');
+}
+@font-face {
+    font-family: 'Futura Italic';
+    src: url('Futura-MediumItalic.eot');
+    src: url('Futura-MediumItalic.eot?#iefix') format('embedded-opentype'),
+        url('Futura-MediumItalic.woff2') format('woff2'),
+        url('Futura-MediumItalic.woff') format('woff'),
+        url('Futura-MediumItalic.ttf') format('truetype'),
+        url('Futura-MediumItalic.svg#Futura-MediumItalic') format('svg');
+}
+
+
+
+/*==================================
+
+  Universal Styling
+
+=====================================*/
+:root {
+  --blue: #21376d;
+  --brown: #837662;
+  --green: #85a363;
+  --black: #000000;
+  --white: #FFFFFF;
+}
+
+* {
+	padding: 0;
+	margin: 0;
+	border: 0;
+	box-sizing: border-box;
+}
+
+/*==================================
+
+  Headline Tags and Paragraph Stylings
+
+=====================================*/
+h1 {
+  font-size: 2.1rem;
+  font-family: futura-pt, sans-serif;
+  font-weight: 500;
+  font-style: normal;
+}
