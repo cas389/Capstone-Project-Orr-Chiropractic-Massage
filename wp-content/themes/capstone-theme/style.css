@@ -61,7 +61,9 @@ header{
   top: 0;
   width: 100%;
 	height: 9rem;
+  border-bottom: 2px solid var(--blue);
 }
+
 /*==================================
   Logo Section
 =====================================*/
@@ -98,9 +100,6 @@ header{
   overflow: hidden;
 	max-height: 0;
 	transition: max-height .5s ease-out;
-  font-family: adelle-sans, sans-serif;
-  font-weight: 400;
-  font-style: normal;
 	z-index: 999;
   margin-left: -1rem;
 }
@@ -109,8 +108,10 @@ header{
   color: var(--white);
 	text-decoration: none;
   text-transform: uppercase;
-  padding: .5rem 2rem;
+  padding: .5rem 3rem;
   margin-left: -2rem;
+  font-family: futura-pt, sans-serif;
+  font-size: 1.5rem;
 }
 /* Background when clicked on hamburger menu */
 .main-navigation a:hover,
@@ -139,7 +140,7 @@ header{
   padding: .5rem;
 }
 .hamb-line {
-    background: var(--green);
+    background: var(--blue);
     display: block;
     height: 2px;
     position: relative;
@@ -147,7 +148,7 @@ header{
 }
 .hamb-line::before,
 .hamb-line::after{
-    background: var(--green);
+    background: var(--blue);
     content: '';
     display: block;
     height: 100%;
@@ -179,7 +180,10 @@ header{
     top:0;
 }
 
-
+/* Book Now Link Styling for Navigation Bar */
+.book-now-link {
+  background-color: var(--green);
+}
 
 /*==================================
 
@@ -294,10 +298,11 @@ Responsive Web Coding - 1366px by 768px (Laptop)
     margin-left: 0rem;
   }
   .main-navigation a {
-    margin-left: 0;
-    padding: 1rem 0;
-    color: var(--green);
-    min-width: 11rem;
+    color: var(--black);
+    padding: 0;
+    margin: 0;
+    min-width: 8rem;
+    font-size: 1.25rem;
   }
   /* Allowes the Navigation to be in a straight line instead of vertical */
   .main-navigation li {
@@ -308,6 +313,22 @@ Responsive Web Coding - 1366px by 768px (Laptop)
   .main-navigation ul {
     float: right;
   }
+  /* Changes hover effect on links */
+  .main-navigation a:hover, .main-navigation li:hover ul a:hover, .sub-menu a:hover, .sub-menu li:hover ul a:hover {
+  background-color: var(--brown);
+  color: white;
+  padding: 3rem 0;
+  margin-top: -3rem;
+  }
+  /* Book Now Link Styling for Navigation Bar */
+  .book-now-link {
+    background-color: var(--blue);
+  }
+  .book-now-link a{
+    color: var(--white);
+    margin-left: 0rem;
+  }
+
   /* Allows the Submenu Dropdown to be vertical instead of horizontal */
   .main-navigation li ul li {
     display: block;
