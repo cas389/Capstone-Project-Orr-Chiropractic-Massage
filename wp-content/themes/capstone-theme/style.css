@@ -193,6 +193,9 @@ header{
 /* Footer Styling */
 footer {
   margin: 2rem 0;
+  background-color: var(--brown);
+  color: white;
+  padding: 2rem 0;
 }
 /* Footer Font and Paragrah Styling */
 .left-footer,
@@ -230,7 +233,17 @@ footer a:hover {
   margin-left: -1rem;
 }
 
-
+/* Stylizing Search Bar in Footer */
+  .wp-block-search__button {
+  background-color: var(--green);
+  color: white;
+  padding: 0 2rem;
+  border-radius: 5px;
+}
+  .wp-block-search__input {
+  border-radius: 5px;
+  max-width: 15rem;
+}
 
 /*==================================
 
