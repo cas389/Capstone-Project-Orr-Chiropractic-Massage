@@ -84,6 +84,16 @@
       'before_title'  => '<h2>',
       'after_title'   => '</h2>'
     ));
+
+    register_sidebar(array(
+      'name'          => ('Center Footer Widget'),
+      'id'            => 'center-footer',
+      'description'   => 'Displays a Widget for the Center Footer',
+      'before_widget' => '<div class="center-footer">',
+      'after_widget'  => '</div>',// End of sidebar widget container
+      'before_title'  => '<h2>',
+      'after_title'   => '</h2>'
+    ));
   }
 
   add_action('widgets_init', 'blank_widgets_init');
@@ -243,7 +253,7 @@
     $tiktok     = get_theme_mod('social_tiktok');
 
     if($facebook)
-      echo '<li><a href="'.esc_url( $facebook ).'" target="_blank"><i class="fa fa-facebook"></i></a></li>';
+      echo '<li><a href="'.esc_url( $facebook ).'" target="_blank"><i class="fa-brands fa-facebook"></i></a></li>';
 
     if($twitter)
       echo '<li><a href="'.esc_url( $twitter ).'" target="_blank"><i class="fa fa-twitter"></i></a></li>';
@@ -308,6 +318,10 @@
    <input type="text" name="company_number" id="company_number" value="<?php echo get_option('company_number'); ?>" /><?php
  }
 
+ function display_fax_number(){ ?>
+   <input type="text" name="company_fax_number" id="company_fax_number" value="<?php echo get_option('company_fax_number'); ?>" /><?php
+ }
+
 
 
  function display_theme_panel_fields(){
@@ -323,11 +337,14 @@
 
    add_settings_field('company_number', 'Company Phone Number', 'display_phone_number', 'orrchiro-options', 'orrchiro-section');
 
+   add_settings_field('company_fax_number', 'Company Fax Number', 'display_fax_number', 'orrchiro-options', 'orrchiro-section');
+
    register_setting('orrchiro-section', 'google_analytics_code');
    register_setting('orrchiro-section', 'company_name');
    register_setting('orrchiro-section', 'company_address');
    register_setting('orrchiro-section', 'company_city_zip');
    register_setting('orrchiro-section', 'company_number');
+   register_setting('orrchiro-section', 'company_fax_number');
  }
 
  add_action('admin_init', 'display_theme_panel_fields');

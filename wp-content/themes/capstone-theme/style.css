@@ -244,6 +244,17 @@ footer a:hover {
   border-radius: 5px;
   max-width: 15rem;
 }
+/* Social Media Icons */
+.social-icon {
+  font-size: 2rem;
+  margin-top: 1rem;
+}
+.social-icon a {
+  color: white;
+}
+.social-icon a:hover {
+  color: var(--blue);
+}
 
 /*==================================
 
