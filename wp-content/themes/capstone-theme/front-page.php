@@ -5,10 +5,10 @@
 <main>
   <!-- Hero Image and Page Title -->
   <section class="hero-section">
-    <?php the_post_thumbnail('full'); ?><!-- Hero Image -->
-    <section class="home-text">
-      <h1><?php the_title(); ?></h1><!-- Page Title -->
-    </section> <!-- End of page-title Section -->
+    <!-- For Smart Slider Plugin for Hero Image/Title -->
+    <?php
+      echo do_shortcode('[smartslider3 slider="2"]');
+    ?><!-- End of Smart Slider Plugin -->
   </section> <!-- End of hero-section Section -->
 </main>
 
