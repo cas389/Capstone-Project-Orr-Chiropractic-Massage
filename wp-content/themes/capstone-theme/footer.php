@@ -14,16 +14,16 @@
             </div><!-- End Social Media Links -->
 
             <!-- Left Link Menu -->
-            <div class="center-links-footer">
+            <div class="left-links-footer">
               <?php
                 // Footer Menu Bar Section
                 // Says, if the footer is filled out, display menu, if not, displays a message.
-                if(has_nav_menu('center-footer-links')){ ?>
+                if(has_nav_menu('left-footer-links')){ ?>
                   <nav class="footer-menu">
                     <?php
                     // Shows the navigation to the page, created by the user
                     wp_nav_menu(array(
-                      'theme_location'  => 'center-footer-links',
+                      'theme_location'  => 'left-footer-links',
                     ));
                     ?>
                   </nav><!-- End of footer-menu Navigation -->
@@ -36,7 +36,7 @@
           </div><!-- End of Left Side Footer Div -->
 
           <!-- Middle Footer Div -->
-          <div class="col-md-4">
+          <div class="col-md-4 center-footer">
             <?php
               dynamic_sidebar('center-footer');
             ?>

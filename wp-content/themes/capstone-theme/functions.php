@@ -62,7 +62,7 @@
   ====================================== */
   function register_my_menus(){
     register_nav_menus(array(
-      'center-footer-links'   => __('Center Footer Menu'),
+      'left-footer-links'     => __('Left Footer Menu'),
       'main-menu'             => __('Main Menu'),
     ));
   }

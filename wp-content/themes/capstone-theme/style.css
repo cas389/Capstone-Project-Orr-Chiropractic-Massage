@@ -200,37 +200,27 @@ footer {
 /* Footer Font and Paragrah Styling */
 .left-footer,
 .right-footer,
-.center-links-footer,
-.center-logo-footer,
+.center-footer,
 .left-footer p,
-.right-footer p,
-.center-links-footer p {
-  text-align: center;
+.right-footer p
+.center-footer p {
   font-family: 'PT Serif', serif;
   font-weight: 400;
   font-style: normal;
-  font-size: .85rem;
+  font-size: 1rem;
+  text-align: center;
 }
 /* Link Styling for Footer Items */
 footer a {
   text-decoration: none;
-  text-transform: uppercase;
-  color: var(--green);
-  text-align: center;
+  color: var(--white);
 }
 footer ul {
   list-style-type: none;
 }
-footer li {
-  text-align: center;
-}
 footer a:hover {
   color: var(--blue);
-  text-transform: uppercase;
-}
-/* Fixing Margin with the column */
-.center-links-footer {
-  margin-left: -1rem;
+  text-decoration: none;
 }
 
 /* Stylizing Search Bar in Footer */
@@ -243,6 +233,7 @@ footer a:hover {
   .wp-block-search__input {
   border-radius: 5px;
   max-width: 15rem;
+  margin-left: 2rem;
 }
 /* Social Media Icons */
 .social-icon {
@@ -289,6 +280,33 @@ footer a:hover {
   .hamburger-menu {
     margin: 4rem 1rem;
   }
+
+  /*==================================
+    Footer
+  =====================================*/
+  /* Footer Styling */
+  footer {
+    padding: 1.5rem 0 0 0;
+  }
+  /* Column Alignment */
+  .right-footer {
+    text-align: right;
+  }
+  .left-footer {
+    text-align: left;
+  }
+  .center-footer {
+    text-align: center;
+  }
+  footer li {
+    text-align: left;
+  }
+  /* Fixing Search Bar in Footer for Tablet and Larger */
+  .wp-block-search__input {
+  margin: -1rem 0 0 0;
+  }
+  .wp-block-search__button {
+  margin-top: -1rem;
 }
 
 /*==================================
