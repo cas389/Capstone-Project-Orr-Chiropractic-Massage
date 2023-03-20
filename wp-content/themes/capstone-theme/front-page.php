@@ -5,10 +5,18 @@
 <main>
   <!-- Hero Image and Page Title -->
   <section class="hero-section">
-    <!-- For Smart Slider Plugin for Hero Image/Title -->
     <?php
-      echo do_shortcode('[smartslider3 slider="2"]');
-    ?><!-- End of Smart Slider Plugin -->
+      // WordPress Loop
+      if(have_posts()){
+        while(have_posts()){
+          the_post(); ?>
+
+          <!-- Display Content on Page -->
+          <p><?php the_content(); ?></p>
+        <?php
+        } // End of While
+      } // End of If statement
+    ?>
   </section> <!-- End of hero-section Section -->
 </main>
 

@@ -249,6 +249,22 @@ footer a:hover {
 
 /*==================================
 
+  Home Page
+
+=====================================*/
+/* Stylizes Hero Image to Fit Screen */
+.hero-section {
+  margin-top: -1rem;
+}
+.hero-section img {
+  width: 100%;
+  object-fit: cover;
+  max-height: 200px;
+}
+
+
+/*==================================
+
   Responsive Web Coding - 768px by 1024px (Tablet)
 
 =====================================*/
