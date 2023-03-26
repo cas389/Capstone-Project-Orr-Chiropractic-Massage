@@ -1,4 +1,26 @@
 <?php
+        $name               = $_POST['name'];
+        $email              = $_POST['email'];
+        $message            = $_POST['message'];
+
+
+            if(!empty($name)){
+                echo "<li><span class='label'>Name</span> $name</li>";
+            }
+
+            if(!empty($email)){
+                echo "<li><span class='label'>Email</span><a href='mailto:$email'> Email</li>";
+            }
+
+            if(!empty($message)){
+                echo "<li><span class='label'>Message</span> $message</li>";
+            }
+
+    ?>
+
+
+
+<?php
 
 /* ======================================
 
@@ -378,3 +400,39 @@
  <?php }
  add_action('wp_head', 'themeGoogleAnalyitcs');
  ?>
+<?php
+/*===============================
+
+Pagination Links for Search/Archive pages
+
+=====================================*/
+
+function orrPagination(){
+    global $wp_query;
+
+    $big = 999999999; // need an unlikely integer
+    $translated = __( 'Page', 'mytextdomain' ); // Supply translatable string
+
+    echo paginate_links( array(
+        'base' => str_replace( $big, '%#%', esc_url( get_pagenum_link( $big ) ) ),
+        'format' => '?paged=%#%',
+        'current' => max( 1, get_query_var('paged') ),
+        'total' => $wp_query->max_num_pages,
+        'before_page_number' => '<span class="screen-reader-text">'.$translated.' </span>'
+    ) );
+  }
+
+/*==========================
+Post Data Information
+==========================*/
+function post_data(){
+    $archive_year   = get_the_time('Y');
+    $archive_month  = get_the_time('m');
+    $archive_day    = get_the_time('d');
+?>
+
+<p>Published on: <a href="<?php echo get_day_link($archive_year,$archive_month,$archive_day); ?>"><?php echo "$archive_month/$archive_day/$archive_year"; ?></a></p>
+
+<?php
+}?>
+	   
